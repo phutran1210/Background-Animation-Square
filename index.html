@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Animations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section></section>
+    <script>
+        const color = [
+            '#2196f3',
+            '#e91e63',
+            '#ffeb3b',
+            '#74ff1d'
+        ]
+        function createSquare(){
+            // Dom tới thẻ section đầu tiên (querySelector)
+            const section = document.querySelector('section')
+            // Tạo ra các khối lập phương
+            const square = document.createElement('span')
+
+            square.style.width = 20 + 'px';
+            square.style.height = 20 + 'px';
+            square.style.top = Math.random() * innerHeight + 'px';
+            square.style.left = Math.random() * innerWidth + 'px';
+            
+            const bg = color[Math.floor(Math.random() * color.length)]
+            square.style.background = bg;
+
+            //thêm square vào section
+            section.appendChild(square);
+            setTimeout(() => {
+                square.remove();
+            }, 5000);
+        }
+        setInterval(createSquare,150)
+    </script>
+</body>
+</html>
